@@ -1,15 +1,19 @@
 library(dplyr)
-
+i <- 1
 u <- length(get(playername[i]))/4
 
-aa <- 1
-i <- 1
+
 for (i in 1:pcount)
 { 
     newdata <- NULL
+    
     #读取列名称+v
+   
     rname <- names(get(playername[i]))
-    rname <- paste("v",rname,sep = "")
+    rname <- paste("v",rname,sep = "")  
+   
+    
+    aa <- 1
     a <- 0
     for (p in 1:u) {
     a <- a+1
@@ -28,16 +32,17 @@ for (i in 1:pcount)
     colnames(new1) <- rname[(aa):(aa+3)]
     aa <- aa+4
     newdata <- dplyr::bind_cols(newdata,new1)
-    
     }
-   
-newdata <- newdata[,-1]
+    
+
+#newdata <- newdata[,-1]
 new2 <- data.frame()
 new2 <- newdata
 new2 <- dplyr::bind_cols(get(playername[i]),new2)
 assign(playername[i],new2)
 } 
-rm(a,u,new1,new2,newdata,aa,i,l,m,n,p,rname,vx,vy,vz)
+
+rm(a,u,new1,new2,newdata,aa,i,l,m,n,p,vx,vy,vz)
 
 
   # res <- cbind(vel,acc) 
