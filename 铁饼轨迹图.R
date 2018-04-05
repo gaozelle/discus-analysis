@@ -35,6 +35,10 @@ layout(matrix(c(1:8),nr=2,byrow=T))
        xlab ="X轴", ylab = "Z轴", xlim = c(-2,3), ylim = c(0,3))
   
   lines(get(playername[i])$重心X,get(playername[i])$重心Z,col=cols[1])
+  for (p in 1:6){
+    if()
+  }
+    
   
   #draw.circle(0,0,2.5/2)
 }
