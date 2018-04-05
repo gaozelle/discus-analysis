@@ -42,7 +42,7 @@ new2 <- dplyr::bind_cols(get(playername[i]),new2)
 assign(playername[i],new2)
 } 
 
-rm(a,u,new1,new2,newdata,aa,i,l,m,n,p,vx,vy,vz)
+rm(a,u,new1,new2,newdata,aa,i,l,m,n,p,vx,vy,vz,vr,rname)
 
 
   # res <- cbind(vel,acc) 
