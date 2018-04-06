@@ -1,0 +1,5 @@
+source('~/discus_analysis/清除所有变量.R')
+source('~/discus_analysis/function.R')
+source('~/discus_analysis/读取三维坐标数据.R')
+source('~/discus_analysis/求速度.R')
+source('~/discus_analysis/划分阶段.R')
