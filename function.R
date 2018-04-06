@@ -41,7 +41,7 @@ ve <- function(x){
 
 #巴特沃斯滤波 k为截断频率
 butterworth <- function(x){
-  x <- FilterOfOrder(x,20,"low")
+  x <- FilterOfOrder(x,8,"low")
   xx <- x[["n"]]
   return(xx)
 }
