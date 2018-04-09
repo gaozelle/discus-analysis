@@ -3,7 +3,7 @@ library(ggplot2)
 library(RColorBrewer)
 
 #RColorBrewer中的所有调色板
-display.brewer.all()
+#display.brewer.all()
 #选取Set1调色板中的四种颜色
 cols<-brewer.pal(n=4,name="Set1")
 #cols表示的是四种不同颜色的名称
@@ -25,45 +25,78 @@ cols<-brewer.pal(n=4,name="Set1")
   
 
 
-layout(matrix(c(1:8),nr=2,byrow=T))
+layout(matrix(c(1:24),nr=6,byrow=T))
  par(family='STKaiti')#添加中文字体
 #YZ平面
  for (i in 1:pcount){
   
  
     plot(get(playername[i])$discusX,get(playername[i])$discusZ,main = playername[i],type = "o",
-       xlab ="X轴", ylab = "Z轴", xlim = c(-2,3), ylim = c(0,3))
+       xlab ="X轴", ylab = "Z轴", xlim = c(-2,3), ylim = c(0,3),col=cols[3])
   
-  lines(get(playername[i])$重心X,get(playername[i])$重心Z,col=cols[1])
-  for (p in 1:6){
-    if()
+  lines(get(playername[i])$重心X,get(playername[i])$重心Z,col=cols[2])
+  
+   for (p in 1:6){
+     points(get(playername[i])$discusX[as.matrix(as.vector(phase[i,p+1]))],
+            get(playername[i])$discusZ[as.matrix(as.vector(phase[i,p+1]))],
+                  col=cols[1])
   }
     
+  for (p in 1:6){
+    text((get(playername[i])$discusX[as.matrix(as.vector(phase[i,p+1]))]+0.3),
+           get(playername[i])$discusZ[as.matrix(as.vector(phase[i,p+1]))],
+         paste("T",p),col=cols[1])
+  }
   
   #draw.circle(0,0,2.5/2)
 }
 
+ 
+ 
 #XZ平面
  for (i in 1:pcount){
    
    
      plot(get(playername[i])$discusY,get(playername[i])$discusZ,main = playername[i],type = "o",
-        xlab ="Y轴", ylab = "Z轴", xlim = c(-2.5,2.5), ylim = c(0,3))
+        xlab ="Y轴", ylab = "Z轴", xlim = c(-2.5,2.5), ylim = c(0,3),col="#66ccff")
    
-   lines(get(playername[i])$重心Y,get(playername[i])$重心Z,col=cols[1])
-   
+     lines(get(playername[i])$重心Y,get(playername[i])$重心Z,col=cols[1])
+     for (p in 1:6){
+       points(get(playername[i])$discusY[as.matrix(as.vector(phase[i,p+1]))],
+              get(playername[i])$discusZ[as.matrix(as.vector(phase[i,p+1]))],
+              col=cols[1])
+     }
+ 
+ 
+    for (p in 1:6){
+     text((get(playername[i])$discusY[as.matrix(as.vector(phase[i,p+1]))]+0.3),
+          get(playername[i])$discusZ[as.matrix(as.vector(phase[i,p+1]))],
+        paste("T",p),col=cols[1])
+     }
    
  }
 
+ 
+ 
 #XY平面
  for (i in 1:pcount){
    
    
    plot(get(playername[i])$discusX,get(playername[i])$discusY,main = playername[i],type = "o",
-          xlab ="X轴", ylab = "Y轴", xlim = c(-2.5,2.5), ylim = c(-2,3))
+          xlab ="X轴", ylab = "Y轴", xlim = c(-2.5,2.5), ylim = c(-2,3), col="#66cccc")
    
-   lines(get(playername[i])$重心X,get(playername[i])$重心Y,col=cols[1])
+   lines(get(playername[i])$重心X,get(playername[i])$重心Y,col=cols[4])
+   for (p in 1:6){
+     points(get(playername[i])$discusX[as.matrix(as.vector(phase[i,p+1]))],
+            get(playername[i])$discusY[as.matrix(as.vector(phase[i,p+1]))],
+            col=cols[1])
+   }
    
+   for (p in 1:6){
+     text((get(playername[i])$discusX[as.matrix(as.vector(phase[i,p+1]))]+0.3),
+            get(playername[i])$discusY[as.matrix(as.vector(phase[i,p+1]))],
+            paste("T",p),col=cols[1])
+   }
    draw.circle(0,0,2.5/2)
  }
  
