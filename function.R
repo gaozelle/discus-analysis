@@ -53,7 +53,7 @@ distance <- function(x,y){
 }
 
 #三点的夹角
-angle <- function(o,a,b){
+angle2 <- function(o,a,b){
   oa <- distance(o,a)
   ob <- distance(o,b)
   ab <- distance(a,b)
@@ -79,7 +79,7 @@ dtor <- function(x){
 }
 
 #向量计算角度
-angle2 <- function(a,b,c,d){
+angle <- function(a,b,c,d){
   ab <- b-a
   cd <- d-c
   cj<-acos(sum(ab*cd)/sqrt(sum(ab^2)*sum(cd^2)))
