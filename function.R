@@ -45,4 +45,44 @@ butterworth <- function(x){
   xx <- x[["n"]]
   return(xx)
 }
+
+# 求两点的距离
+distance <- function(x,y){
+  l <- sqrt((y[1]-x[1])^2+(y[2]-x[2])^2+(y[3]-x[3])^2)
+  return(l)
+}
+
+#三点的夹角
+angle <- function(o,a,b){
+  oa <- distance(o,a)
+  ob <- distance(o,b)
+  ab <- distance(a,b)
+  cj <- (ob^2+oa^2+ab^2)/(2*ob*oa)
+  if(cj>1 | cj< -1){
+    cj <- cj-floor(cj)
+  }
+  cj <- acos(cj)
+  cj <- round(rtod(cj),4)
+  return(cj)
+}
   
+# 弧度转角度
+rtod <- function(x){
+  x <- x*180/pi
+  return(x)
+}
+
+# 角度转弧度
+dtor <- function(x){
+  x <- x*pi/180
+  return(x)
+}
+
+#向量计算角度
+angle2 <- function(a,b,c,d){
+  ab <- b-a
+  cd <- d-c
+  cj<-acos(sum(ab*cd)/sqrt(sum(ab^2)*sum(cd^2)))
+  cj <- rtod(cj)
+  return(cj)
+}
