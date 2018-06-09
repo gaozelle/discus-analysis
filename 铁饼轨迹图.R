@@ -100,3 +100,4 @@ layout(matrix(c(1:24),nr=6,byrow=T))
    draw.circle(0,0,2.5/2)
  }
  
+ rm(cols,i,p)
