@@ -24,4 +24,5 @@ for (i in 1:pcount)
          horiz=FALSE,
          cex=0.8)
 }
-rm(a)
+rm(a,i,color)
+
